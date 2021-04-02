@@ -1,0 +1,51 @@
+﻿@page
+@model MarcinLakomyRazorPages.Pages.Animals.IndexModel
+@{
+}
+
+
+<h2>Animals</h2>
+
+@if (Model.message != null)
+            {
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    @Model.message
+                </div>
+            }
+
+<a href="animals/create" class="btn btn-sm btn-primary" style="margin:10px;">Add animal</a>
+
+@if (Model.Animals != null && Model.Animals.Count > 0) { 
+<form method="post">
+    <table class="table table-condensed table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>BirthDate</th>
+        </tr>
+
+        @foreach (var item in Model.Animals)
+        {
+            <tr>
+                <td>
+                    @item.AnimalID
+                </td>
+                <td>
+                    @item.AnimalName
+                </td>
+                <td>
+                    @item.Birthday
+                </td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@item.AnimalID" class="btn btn-success btn-sm">Edit</a>
+                    <button asp-page-handler="Delete" asp-route-id="@item.AnimalID" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+        }
+    </table>
+</form>
+    
+}

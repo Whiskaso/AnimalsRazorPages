@@ -1,0 +1,20 @@
+﻿@page
+@model MarcinLakomyRazorPages.Pages.Animals.EditModel
+@{
+}
+
+<h2>Edytuj zwierzątko</h2>
+
+<form style="border:1px solid #bbb9d9; border-radius:5px; padding:20px;" method="post">
+    <label asp-for="animal.AnimalID"> </label>
+    <input class="form-control" asp-for="animal.AnimalID" />
+
+    <label asp-for="animal.AnimalName"> </label>
+    <input class="form-control" asp-for="animal.AnimalName" />
+
+    <label asp-for="animal.Birthday"> </label>
+    <input class="form-control" asp-for="animal.Birthday" />
+
+    <input class="btn btn-sm btn-primary" style="margin:15px" type="submit" value="Update" />
+    <a class="btn btn-sm btn-success" style="margin:15px" href="../animals">Back To List</a>
+</form>
